@@ -1,5 +1,7 @@
 package sortroutines;
 import runtime.*;
+
+import java.util.Arrays;
 import java.util.Random;
 public class MergeSortPlus extends Sorter {
 	final int ARRAY_SIZE = 33;
@@ -45,10 +47,13 @@ public class MergeSortPlus extends Sorter {
 		}	
 	}
 	void mergeSort(int[] tempStorage, int lower, int upper) {
+		System.out.println("############## "+(upper-lower));
 		if(lower==upper){
 			return;
 		}
-		else if(upper-lower<20) {
+
+
+		 if((upper-lower)<=20) {
 			insertionSort(theArray,lower,upper);
 		}
 		
@@ -59,13 +64,13 @@ public class MergeSortPlus extends Sorter {
 			merge(tempStorage,lower,mid+1,upper); //merge them
 		}
 	}
-	
+
+
 public static int[] insertionSort(int[] anArray,int lower,int upper) {
-	System.out.println("Result");
-//	  if(anArray == null || anArray.length <= 1) {
-//			return anArray;
-//		  }
-		 // int len = anArray.length;
+	//System.out.println("Result");
+	  if(anArray == null || anArray.length <= 1) {
+			return anArray;
+		  }
 		  int temp = 0;
 		  int j = 0;
 		  for(int i = lower; i < upper; ++i) {
